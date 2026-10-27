@@ -1,0 +1,8 @@
+//
+// Created by Dmitri on 2026-10-26.
+//
+
+#ifndef RAT_TARGET_COMMAND_OUTPUT_H
+#define RAT_TARGET_COMMAND_OUTPUT_H
+
+#endif //RAT_TARGET_COMMAND_OUTPUT_H
