@@ -23,12 +23,11 @@ int main() {
     path = std::filesystem::current_path();
 
     Directory directory = Directory(path.c_str());
-    OSInformation osInformation = OSInformation();
 
-    std::cout << osInformation.name() << std::endl;
-    std::cout << osInformation.architecture() << std::endl;
-    std::cout << osInformation.hostname() << std::endl;
-    std::cout << osInformation.username() << std::endl;
+    std::cout << OSInformation::name() << std::endl;
+    std::cout << OSInformation::architecture() << std::endl;
+    std::cout << OSInformation::hostname() << std::endl;
+    std::cout << OSInformation::username() << std::endl;
 
 
     Client client;
