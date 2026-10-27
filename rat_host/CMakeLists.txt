@@ -3,4 +3,6 @@ project(rat_host)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(rat_host main.cpp)
+add_executable(rat_host main.cpp
+        src/network/Server.cpp
+        src/network/Server.h)
