@@ -18,12 +18,8 @@ int main() {
     std::string line;
     while (std::getline(std::cin, line) && line != "quit") {
 
-        std::istringstream ss(line);
-        std::string cmd;
-
-        ss >> cmd;
-        std::cout << "command sent: " << cmd << std::endl;
-        server.Broadcast(cmd);
+        std::cout << "command sent: " << line << std::endl;
+        server.Broadcast(line);
     }
 
     server.Stop();
