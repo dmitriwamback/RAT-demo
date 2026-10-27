@@ -1,4 +1,9 @@
 #include <iostream>
+#include <filesystem>
+
+#include "src/Directory.h"
+#include "src/network/Client.h"
+#include "src/network/OSInformation.h"
 
 #if defined(_WIN32)
 #include <windows.h>
@@ -11,19 +16,23 @@
 
 int main() {
 
-
-
     // Sending OS information
-#if defined(_WIN32)
-    // windows
+    const char* currentDirectory = "";
+    std::string path;
+
+    path = std::filesystem::current_path();
+
+    Directory directory = Directory(path.c_str());
+    OSInformation osInformation = OSInformation();
+
+    std::cout << osInformation.name() << std::endl;
+    std::cout << osInformation.architecture() << std::endl;
+    std::cout << osInformation.hostname() << std::endl;
+    std::cout << osInformation.username() << std::endl;
 
 
-#elif defined(__APPLE__)
-    // mac
+    Client client;
 
-
-#endif
-
-    std::string result = execute("ls");
-    std::cout << result << std::endl;
+    //std::string result = execute("ls");
+    //std::cout << result << std::endl;
 }

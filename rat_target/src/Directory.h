@@ -22,7 +22,7 @@ struct DirectoryResult {
 
 class Directory {
 public:
-    Directory();
+    Directory(const char* directory);
     std::vector<DirectoryResult> ChangeDirectory(const char* directory, ChangeDirectoryType type);
 
 private:
